@@ -1,19 +1,27 @@
 // Function to handle redirect
 function handleResponse(response, timeout = 1000) {
 
-    if (response.startsWith("Trying")) {
+    if (response.startsWith('TRYING')) {
         setTimeout(function() {
             redirectTo('');
         }, timeout);
     }
 
-    if (response.startsWith("Security")) {
+    if (['SUCCESS: SESSION TERMINATED'].includes(response)) {
         setTimeout(function() {
             redirectTo('');
         }, timeout);
     }
 
-    if (['Login accepted', 'Access accepted'].includes(response)) {
+    console.log(response);
+
+    if (['SUCCESS: SECURITY'].includes(response)) {
+        setTimeout(function() {
+            redirectTo('');
+        }, timeout);
+    }
+
+    if (['SUCCESS: AUTHENTICATION COMPLETE'].includes(response)) {
         setTimeout(function() {
             sessionStorage.setItem('host', true);
             redirectTo('');

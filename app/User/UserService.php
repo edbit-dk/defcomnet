@@ -100,8 +100,7 @@ class UserService extends User
 
         if (Session::has(self::$blocked)) {
             echo <<< EOT
-            *** Unauthorized activity detected ***
-            *** Connection terminated by remote host ***
+            ERROR: TERMINAL BLOCKED. PLEASE CONTACT AN ADMINISTRATOR.
             EOT;
             exit;
         }
@@ -141,7 +140,7 @@ class UserService extends User
             // Cache::forget(self::key());
             Session::remove(self::$auth);
         }
-        echo "Goodbye.\n\n";
+        echo "SUCCESS: SESSION TERMINATED\n\n";
     }
 
     public static function count()

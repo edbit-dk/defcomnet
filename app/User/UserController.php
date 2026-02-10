@@ -27,12 +27,12 @@ class UserController extends AppController
             if(Auth::login($input['username'], $input['password'])) {
                 Host::attempt(0, Auth::id());
                 sleep(1);
-                echo 'WELCOME';
+                echo 'SUCCESS: AUTHENTICATION COMPLETE';
                 exit;  
 
             } else {
                 echo <<< EOT
-                ERROR: WRONG PASSWORD
+                ERROR: INVALID CREDENTIALS
                 EOT;
                 exit;
             }    
@@ -60,11 +60,11 @@ class UserController extends AppController
                 'password' => $this->data
             ]);
     
-            echo 'PASSWORD CHANGED';
+            echo 'SUCCESS: PASSWORD CHANGED';
         }
     }
 
-    public function newuser() 
+    public function register() 
     {
         // Check if the user is already blocked
         Auth::blocked();
@@ -78,7 +78,7 @@ class UserController extends AppController
             $password = $input['password'];
 
             if (User::where('username', '=', $username)->exists()) {
-                echo 'USERNAME NOT AVAILABLE';
+                echo 'ERROR: USERNAME TAKEN';
                 exit;
              }
 
@@ -94,11 +94,11 @@ class UserController extends AppController
         if(Auth::login($input['username'], $input['password'])) {
             Host::attempt(0, Auth::id());
             sleep(1);
-            echo 'Login accepted';
+            echo 'SUCCESS: LOGON ACCEPTED';
             exit;  
 
         } else {
-            echo 'Access denied, please try again.';
+            echo 'ERROR: ACCESS DENIED';
             exit;
         }   
     }

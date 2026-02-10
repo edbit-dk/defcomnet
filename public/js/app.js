@@ -39,7 +39,7 @@ $(document).ready(function() {
             localStorage.setItem('boot', true); // Set 'boot' flag in sessionStorage
             clearTerminal();
             sendCommand('main', '');
-        }, 10000);
+        }, 15000);
     } else {
 
         setTimeout(function() {
@@ -85,19 +85,27 @@ document.getElementById('play-button').addEventListener('click', toggleMusic);
 // Function to handle redirect
 function handleResponse(response, timeout = 1000) {
 
-    if (response.startsWith("Trying")) {
+    if (response.startsWith('TRYING')) {
         setTimeout(function() {
             redirectTo('');
         }, timeout);
     }
 
-    if (response.startsWith("Security")) {
+    if (['SUCCESS: SESSION TERMINATED'].includes(response)) {
         setTimeout(function() {
             redirectTo('');
         }, timeout);
     }
 
-    if (['Login accepted', 'Access accepted'].includes(response)) {
+    console.log(response);
+
+    if (['SUCCESS: SECURITY'].includes(response)) {
+        setTimeout(function() {
+            redirectTo('');
+        }, timeout);
+    }
+
+    if (['SUCCESS: AUTHENTICATION COMPLETE'].includes(response)) {
         setTimeout(function() {
             sessionStorage.setItem('host', true);
             redirectTo('');
@@ -218,32 +226,32 @@ function handleUserPrompts(input) {
 
 function handleUsernamePrompt(input) {
     if (input) {
-        if (currentCommand === 'newuser') {
+        if (currentCommand === 'register') {
             usernameForNewUser = input;
-            loadText("EMTER PASSWORD NOW");
+            loadText("ENTER PASSWORD:");
             isUsernamePrompt = false;
             isPasswordPrompt = true;
             $('#command-input').attr('type', 'password');
         } else if (currentCommand === 'login' || currentCommand === 'logon') {
             usernameForLogon = input;
-            loadText("EMTER PASSWORD NOW");
+            loadText("ENTER PASSWORD:");
             isUsernamePrompt = false;
             isPasswordPrompt = true;
             $('#command-input').attr('type', 'password');
         }
     } else {
-        loadText("Wrong username");
+        loadText("ERROR: WRONG USERNAME");
     }
 }
 
 function handleCommands(command, args) {
-    if (['newuser', 'logon', 'login'].includes(command) && !sessionStorage.getItem('uplink')) {
-        loadText("UPLINK REQUIRED");
+    if (['register', 'logon', 'login'].includes(command) && !sessionStorage.getItem('uplink')) {
+        loadText("ERROR: UPLINK REQUIRED");
         return;
     }
 
-    if (['logon', 'login', 'newuser'].includes(command) && sessionStorage.getItem('auth') && !sessionStorage.getItem('host')) {
-        loadText("LOGOUT REQUIRED");
+    if (['logon', 'login', 'register'].includes(command) && sessionStorage.getItem('auth') && !sessionStorage.getItem('host')) {
+        loadText("ERROR: LOGOUT REQUIRED");
         return;
     }
 
@@ -263,7 +271,7 @@ function handleCommands(command, args) {
             sessionStorage.setItem('uplink', true);
             sendCommand(command, args);
             break;
-        case 'newuser':
+        case 'register':
             handleNewUserCommand(args);
             break;
         case 'logon':
@@ -295,7 +303,7 @@ function handleNewUserCommand(args) {
     if (args) {
         handleNewUser(args);
     } else {
-        promptForUsername('newuser');
+        promptForUsername('register');
     }
 }
 
@@ -320,7 +328,7 @@ function handleExitCommands(command, args) {
 }
 
 function promptForUsername(command) {
-    loadText("LOGON");
+    loadText("ENTER USERNAME:");
     isUsernamePrompt = true;
     currentCommand = command;
     $('#command-input').attr('type', 'text');
@@ -328,7 +336,7 @@ function promptForUsername(command) {
 
 function promptForPassword(command, username) {
     usernameForLogon = username;
-    loadText("ENTER PASSWORD NOW");
+    loadText("ENTER PASSWORD:");
     isUsernamePrompt = false;
     isPasswordPrompt = true;
     currentCommand = command;
@@ -394,10 +402,10 @@ function autoHelp() {
             if (Array.isArray(data)) {
                 commands = data.filter(item => typeof item === 'string'); // Keep only strings
             } else {
-                console.error('Invalid commands data:', data);
+                console.error('ERROR', data);
             }
         })
-        .catch(error => console.error('Error fetching commands:', error));
+        .catch(error => console.error('ERROR', error));
 }
 
 
@@ -437,12 +445,12 @@ function autocomplete() {
 // Function to handle the LOGON/LOGIN command
 function handleLogon(username) {
     if (!sessionStorage.getItem('uplink')) {
-        loadText("UPLINK REQUIRED.");
+        loadText("ERROR: UPLINK REQUIRED");
         return;
     }
 
     if (!usernameForLogon && !username) {
-        loadText("Username:");
+        loadText("USERNAME:");
         isUsernamePrompt = true;
         $('#command-input').attr('type', 'text'); // Switch input to text for username
         return;
@@ -451,30 +459,30 @@ function handleLogon(username) {
     if (isPasswordPrompt) return; // Already prompting for password, do nothing
     isPasswordPrompt = true;
     usernameForLogon = username;
-    loadText("Password:");
+    loadText("PASSWORD:");
     $('#command-input').attr('type', 'password'); // Change input to password
 }
 
 // Function to handle the NEWUSER command
 function handleNewUser(username) {
     if (!sessionStorage.getItem('uplink')) {
-        loadText("UPLINK REQUIRED.");
+        loadText("ERROR: UPLINK REQUIRED.");
         return;
     }
     
     if (!username) {
         // This shouldn't happen since args should be checked in handleUserInput()
-        loadText("USERNAME REQUIRED.");
+        loadText("ERROR: USERNAME REQUIRED.");
         return;
     } else {
         // Assign the provided username
         usernameForNewUser = username;
-        currentCommand = 'newuser';
+        currentCommand = 'register';
     }
 
     // Proceed to password prompt
     isPasswordPrompt = true;
-    loadText("Password:");
+    loadText("PASSWORD:");
     $('#command-input').attr('type', 'password');
 }
 
@@ -488,8 +496,8 @@ function handlePasswordPrompt() {
     if (currentCommand === 'logon' || currentCommand === 'login') {
         sendCommand(currentCommand, usernameForLogon + ' ' + userPassword);
         usernameForLogon = ''; // Clear the username for logon
-    } else if (currentCommand === 'newuser') {
-        sendCommand('newuser', usernameForNewUser + ' ' + userPassword);
+    } else if (currentCommand === 'register') {
+        sendCommand('register', usernameForNewUser + ' ' + userPassword);
         usernameForNewUser = ''; // Clear the username for new user creation
     }
 
@@ -503,14 +511,14 @@ function handlePasswordPromptResponse(response) {
     if (usernameForLogon) {
         sendCommand('logon', usernameForLogon + ' ' + (userPassword || ""));
     } else if (usernameForNewUser) {
-        sendCommand('newuser', usernameForNewUser + ' ' + (userPassword || ""));
+        sendCommand('register', usernameForNewUser + ' ' + (userPassword || ""));
     }
 
-    if (response.startsWith("*** ACCESS DENIED ***") || response.startsWith("WARNING")) {
+    if (response.startsWith("ERROR: ACCESS DENIED") || response.startsWith("WARNING")) {
         loadText(response);
         isPasswordPrompt = false;
         $('#command-input').attr('type', 'text');
-    } else if (response.startsWith("Connecting...")) {
+    } else if (response.startsWith("CONNECTING...")) {
         loadText(response);
         setTimeout(function() {
             sessionStorage.setItem('auth', true);
@@ -522,7 +530,7 @@ function handlePasswordPromptResponse(response) {
 }
 // Function to load text into terminal one letter at a time with 80-character line breaks
 function loadText(text) {
-    let delay = 1;
+    let delay = 5 + Math.random() * 10;
     let currentIndex = 0;
     let lineCharCount = 0; // Track character count per line
     const preContainer = $('<pre>');
@@ -601,7 +609,7 @@ function loadSavedTheme() {
 // Function to set text and background color
 function setTheme(color) {
     const colors = {
-        green: "#0f0",
+        green: "#2dfd8b",
         white: "#EAF7F9",
         yellow: "#ffb642",
         blue: "#0CD7CF",

@@ -1,6 +1,6 @@
 // Function to load text into terminal one letter at a time with 80-character line breaks
 function loadText(text) {
-    let delay = 1;
+    let delay = 5 + Math.random() * 10;
     let currentIndex = 0;
     let lineCharCount = 0; // Track character count per line
     const preContainer = $('<pre>');
@@ -79,7 +79,7 @@ function loadSavedTheme() {
 // Function to set text and background color
 function setTheme(color) {
     const colors = {
-        green: "#0f0",
+        green: "#2dfd8b",
         white: "#EAF7F9",
         yellow: "#ffb642",
         blue: "#0CD7CF",

@@ -48,14 +48,9 @@ class SystemService
             $remote_ip = remote_ip();
 
             echo <<< EOT
-            Security Access Code Sequence Accepted.
+            SUCCESS: SECURITY ACCESS CODE SEQUENCE ACCEPTED
 
-            Welcome to DEFCOM-NET
-
-            Connecting...
-            Authenticating $remote_ip...
-            Accessing...
-            Searching...
+            AUTHORIZING $remote_ip...
             EOT;
             exit;
 
@@ -72,7 +67,7 @@ class SystemService
 
             } else {
                 echo <<< EOT
-                Access denied
+                ERROR: ACCESS DENIED
                 EOT;
             }
             
@@ -83,15 +78,39 @@ class SystemService
     {
         $code = 'code';
         $access_code = access_code();
+        $port = $_SERVER['SERVER_PORT'];
+        $date = strtoupper(date('F jS, Y',));
+        $users = User::count();
+        $hosts = Host::count();
 
         Session::set($code, $access_code);
 
         echo <<< EOT
-        Uplink with central DEFCOM-NET initiated.
-        Enter Security Access Code Sequence:
-        
-        {$access_code}
+        > UPLINK WITH CENTRAL DEFCOM-NET INITIATED... 
 
+        CONNECTED TO DEFCOM-NET PORT {$port}
+
+        DEFENSE & COMMUNICATIONS NETWORK
+        COPYRIGHT 1969-1984 DEFCOM INDUSTRIES
+        _____________________________________________________
+        
+        [ SYSTEM DIAGNOSTIC -> STATUS OK ]
+        -----------------------------------------------------
+        > HOST ID: NODE-01 [VAX/OS V1.4]
+        > LOCAL TIME: {$date}
+        > LAST UPDATE: APRIL 4TH, 1984.
+        -----------------------------------------------------
+        
+        [ COMLINK CONNECTION -> STATUS OK ]
+        -----------------------------------------------------
+        > TOTAL NODES: {$hosts} ACTIVE
+        > TOTAL ACCOUNTS: {$users} ACTIVE
+        > UPLINK ACCESS: GUEST MODE
+        -----------------------------------------------------
+
+        ENTER SECURITY ACCESS CODE SEQUENCE: 
+        
+        [ {$access_code} ]
         EOT;
     }
 
@@ -99,27 +118,14 @@ class SystemService
     {
         sleep(1);
 
-        $port = $_SERVER['SERVER_PORT'];
-        $date = date('H:i l, F j, Y', time());
-        $users = User::count();
-        $hosts = Host::count();
-
         echo <<< EOT
-        Connected to DEFCOM-NET port {$port}
+        ERROR: UNAUTHORIZED ACCESS DETECTED!
 
-        WELCOME TO ROBCOM INDUSTRIES (TM) TERMLINK
-        GLOBAL DEFENSE & COMMUNICATION NETWORK
-         
-        Local time is {$date}. 
-        Last update to network was on April 4th, 1984.
-        
-        There are {$users} local users. 
-        There are {$hosts} active comlinks on the network.
+        WARNING: ACCESS PROHIBITED WITHOUT VALID CREDENTIALS.
+        BY REGISTERING AN ACCOUNT, YOU AGREE TO TOTAL MONITORING 
+        OF YOUR DATA TRAFFIC!
 
-        More commands available after LOGON. 
-        Type HELP for a detailed command list.
-        Type NEWUSER to create an account. 
-        Type RESET to interrupt any command.
+        LOGON:
         EOT;
     }
 
@@ -133,8 +139,8 @@ class SystemService
         ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM
         COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
 
-        Logged in as user $username. 
-        Last login was $last_login.
+        ACCOUNT: $username. 
+        SESSION: $last_login.
         __________________________________________
         EOT;
     }
@@ -168,7 +174,7 @@ class SystemService
         COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
         -Server $id-
 
-        Last login: {$last_login} from $last_ip
+        SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
 
         $system_info
@@ -232,7 +238,7 @@ class SystemService
         COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
         -Server $id-
 
-        Last login: {$last_login} from $last_ip
+        SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
         
         $system_info

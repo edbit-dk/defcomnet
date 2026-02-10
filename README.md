@@ -7,14 +7,16 @@ It is a full multi-user simulation, including simulated hosts. The simulation ta
 The main focus of the project is to educate about internet and terminal history and technology.
 
 # Fallout inspiration 
-- UOS = VOS (VIRTUAL OPERATING SYSTEM)
-- The Enclave = Systems Corporation (SysCorp Syndicate - SS)
+- UOS = V/OS (Virtual Operating System)
+- ZAX = VAX/OS (Virtual Advanced eXecution Operating System)
+- Maineframe = MV/OS (Mainframe Virtual Operating System)
+- The Enclave = Systems Corporation Syndicate (SysCorp)
 - IBM = International Data Machines (IDM Corp)
 - Vault-Tec = Vault Security Corp (Vault-Sec)
 - RobCo = Robot & Computer Industries (RobCom Industries)
 - General Atomics + Poseidon Energy = Global Energy Company (GEC Corp)
 - PoseidoNET = DEFCOM-NET
-- West-Tek = Defense & Communication Industries (DEFCOM Industries)
+- West-Tek = Defense & Communications Industries (DEFCOM Industries)
 - Repconn =  Space Helix Industries (SpaceH Industries) 
 - The Calculator = The Colossus
 

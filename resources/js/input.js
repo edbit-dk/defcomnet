@@ -79,15 +79,15 @@ function handleUserPrompts(input) {
 
 function handleUsernamePrompt(input) {
     if (input) {
-        if (currentCommand === 'newuser') {
+        if (currentCommand === 'register') {
             usernameForNewUser = input;
-            loadText("EMTER PASSWORD:");
+            loadText("ENTER PASSWORD:");
             isUsernamePrompt = false;
             isPasswordPrompt = true;
             $('#command-input').attr('type', 'password');
         } else if (currentCommand === 'login' || currentCommand === 'logon') {
             usernameForLogon = input;
-            loadText("EMTER PASSWORD:");
+            loadText("ENTER PASSWORD:");
             isUsernamePrompt = false;
             isPasswordPrompt = true;
             $('#command-input').attr('type', 'password');
@@ -98,13 +98,13 @@ function handleUsernamePrompt(input) {
 }
 
 function handleCommands(command, args) {
-    if (['newuser', 'logon', 'login'].includes(command) && !sessionStorage.getItem('uplink')) {
-        loadText("UPLINK REQUIRED");
+    if (['register', 'logon', 'login'].includes(command) && !sessionStorage.getItem('uplink')) {
+        loadText("ERROR: UPLINK REQUIRED");
         return;
     }
 
-    if (['logon', 'login', 'newuser'].includes(command) && sessionStorage.getItem('auth') && !sessionStorage.getItem('host')) {
-        loadText("LOGOUT REQUIRED");
+    if (['logon', 'login', 'register'].includes(command) && sessionStorage.getItem('auth') && !sessionStorage.getItem('host')) {
+        loadText("ERROR: LOGOUT REQUIRED");
         return;
     }
 
@@ -124,7 +124,7 @@ function handleCommands(command, args) {
             sessionStorage.setItem('uplink', true);
             sendCommand(command, args);
             break;
-        case 'newuser':
+        case 'register':
             handleNewUserCommand(args);
             break;
         case 'logon':
@@ -156,7 +156,7 @@ function handleNewUserCommand(args) {
     if (args) {
         handleNewUser(args);
     } else {
-        promptForUsername('newuser');
+        promptForUsername('register');
     }
 }
 
@@ -181,7 +181,7 @@ function handleExitCommands(command, args) {
 }
 
 function promptForUsername(command) {
-    loadText("LOGON");
+    loadText("ENTER USERNAME:");
     isUsernamePrompt = true;
     currentCommand = command;
     $('#command-input').attr('type', 'text');
@@ -189,7 +189,7 @@ function promptForUsername(command) {
 
 function promptForPassword(command, username) {
     usernameForLogon = username;
-    loadText("EMTER PASSWORD:");
+    loadText("ENTER PASSWORD:");
     isUsernamePrompt = false;
     isPasswordPrompt = true;
     currentCommand = command;

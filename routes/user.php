@@ -21,7 +21,7 @@ if(User::auth()) {
 if(!User::auth()) {
      $app->get('/login', [UserController::class, 'login']);
      $app->get('/logon', [UserController::class, 'login']);
-     $app->get('/newuser', [UserController::class, 'newuser']);
+     $app->get('/register', [UserController::class, 'register']);
 }
 
 if(User::auth() && !Host::auth() && !Host::guest()) {

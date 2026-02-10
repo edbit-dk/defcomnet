@@ -46,10 +46,10 @@ function autoHelp() {
             if (Array.isArray(data)) {
                 commands = data.filter(item => typeof item === 'string'); // Keep only strings
             } else {
-                console.error('Invalid commands data:', data);
+                console.error('ERROR', data);
             }
         })
-        .catch(error => console.error('Error fetching commands:', error));
+        .catch(error => console.error('ERROR', error));
 }
 
 

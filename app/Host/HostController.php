@@ -83,7 +83,7 @@ class HostController extends AppController
         if($this->data) {
             $data = $this->data;
         } else {
-            echo 'Host not found';
+            echo 'ERROR: HOST NOT FOUND';
             exit;
         }
 
@@ -103,7 +103,7 @@ class HostController extends AppController
         sleep(1);
 
         if(!$host) {
-            echo 'Connection refused';
+            echo 'ERROR: CONNECTION REFUSED';
             exit;
         } 
 
@@ -113,8 +113,8 @@ class HostController extends AppController
 
             echo <<< EOT
 
-            Trying $ip...
-            Connected to $host\n
+            TRYING $ip...
+            CONNECTED TO $host\n
             EOT;
             exit;
         }
@@ -143,7 +143,7 @@ class HostController extends AppController
         }
 
         if(!$hosts) {
-            echo "No hosts found\n";
+            echo "ERROR: NO HOSTS FOUND\n";
             exit;
         } 
 
@@ -195,11 +195,11 @@ class HostController extends AppController
         if(!empty($data)) {
             if(Host::rlogin($data)) {
                 echo <<< EOT
-                Access accepted
+                SUCCESS: AUTHENTICATION COMPLETE
                 EOT;
             } else {
                 echo <<< EOT
-                Access denied
+                ERROR: INVALID CREDENTIALS
                 EOT;
             }
         }
@@ -219,7 +219,7 @@ class HostController extends AppController
 
         if(Host::logon($input['username'],  $input['password'])) {
             echo <<< EOT
-            Access accepted
+            SUCCESS: AUTHENTICATION COMPLETE
             EOT;
         } else {
              // Calculate remaining attempts
@@ -233,7 +233,7 @@ class HostController extends AppController
 
              } else {
                 echo <<< EOT
-                Login failed - invalid credentials
+                ERROR: INVALID CREDENTIALS
                 EOT;
                 exit;
              }
@@ -244,7 +244,7 @@ class HostController extends AppController
     public function logoff() 
     {
         Host::logoff();
-        echo "\nConnection closed by foreign host\n";
+        echo "\nSUCCESS: SESSION TERMINATED\n";
     }
 
 }

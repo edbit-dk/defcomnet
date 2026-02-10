@@ -105,7 +105,7 @@ html, body {
     font-size: inherit;
     flex-grow: 1;
     min-width: 200px;
-    margin-left: 1ch;
+    /* margin-left: 1ch; */
    /* text-transform: uppercase; */
     
     /* Tyk grøn markør */

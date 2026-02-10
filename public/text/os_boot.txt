@@ -1,25 +1,25 @@
 
 
-***** V/OS (R) V4.2.0 *****
+***** V/OS (R) V1.10 *****
 
 COPYRIGHT 1975 ROBCOM(R)
-LOADER V1.1
+LOADER V1.10
 EXEC VERSION 75.84
 64K RAM SYSTEM
 101097 BYTES FREE
 LOCAL DISK FOUND
-LOAD ROM(1): V/OS 420
+LOAD ROM(1): V/OS 110
 
-Initializing RobCom Industries(TM) 
-MF Boot System Driver v.4.2.0
+Initializing RobCom Industries(TM) Boot System v1.10
 ROBCOM BIOS
-R-BIOS-4.02.19.84 52EE5.E7.E8
+R-BIOS-1.10.19.84 52EE5.E7.E8
 Copyright 1975-1984 RobCom Ind.
 Uppermem: 64 KB
 
-> Initializing boot..
-> Loading RobCom VOS...
-> 64K RAM detected...
-> Launching Interface...
+V/OS
+ROBCOM INDUSTRIES
+VIRTUAL OPERATING SYSTEM
+Copyright 1975-1984
 
-=================================
+Welcome to ROBCOM Industries (TM) Termlink
+Initializing...
