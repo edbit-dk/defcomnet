@@ -27,7 +27,6 @@ if(Host::auth() && !Host::guest()) {
     $app->get('/open', [FileController::class, 'cat']);
 
     $app->get('/echo', [FileController::class, 'echo']);
-    $app->get('/cd', [FolderController::class, 'cd']);
     $app->get('/dir', [FileController::class, 'ls']);
     $app->get('/ls', [FileController::class, 'ls']);
 }

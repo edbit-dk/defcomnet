@@ -1,1 +1,1 @@
-Command not found - type ? for help
+ERROR: UNKNOWN COMMAND. CHECK MANUAL FOR HELP.

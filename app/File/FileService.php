@@ -9,27 +9,23 @@ use App\Host\HostModel as Host;
 
 class FileService
 {
-    public static function create($user_id, $host_id, $folder_id, $file_name, $content): FileModel  
+    public static function create($user_id, $host_id, $file_name, $content): FileModel  
     {
         // Fetch the current authenticated user
         $user = User::find($user_id);
         $host = Host::find($host_id);
-        $folder = Folder::find($folder_id);
 
-        if (!$folder || !$user || !$host) {
-            echo 'ERROR: Invalid folder, user, or host';
+        if (!$user || !$host) {
+            echo 'ERROR: INVALID INPUT';
             exit;
         }
 
-        // Check if the user is authorized to create or modify files in this folder
-        if ($folder->isOwnedBy($user)) {
-            // Check if the file already exists
+                    // Check if the file already exists
             $existingFile = File::where('file_name', $file_name)
-                                ->where('folder_id', $folder_id)
                                 ->first();
 
             if ($existingFile) {
-                echo 'ERROR: File already exists';
+                echo 'ERROR: FILE EXISTS';
                 exit;
             }
 
@@ -42,12 +38,8 @@ class FileService
             $file->host_id = $host->id;
             $file->save();
 
-            echo 'SUCCESS: File created successfully';
+            echo 'SUCCESS: FILE CREATED';
             return $file;
-        } else {
-            echo 'ERROR: Unauthorized';
-            exit;
-        }
     }
     
 
@@ -58,7 +50,7 @@ class FileService
         ->get();
 
         if($files->isEmpty()) {
-            echo 'ERROR: Access Denied.';
+            echo 'ERROR: ACCESS DENIED';
             exit;
         }
 
@@ -77,7 +69,7 @@ class FileService
         ->first();
 
         if(empty($file->content)) {
-            echo 'ERROR: File not Found.';
+            echo 'ERROR: FILE NOT FOUND';
         } else {
             echo $file->content;
         }

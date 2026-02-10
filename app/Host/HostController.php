@@ -9,7 +9,6 @@ use App\Host\HostModel as Hosts;
 
 use App\User\UserService as User;
 use App\Host\HostService as Host;
-use App\Folder\FolderService as Folder;
 use App\AppService as App;
 
 class HostController extends AppController
@@ -40,7 +39,6 @@ class HostController extends AppController
 
     public function connection()
     {
-        $pwd = Folder::pwd();
 
         if(Host::guest()) {
             $hostname = Host::hostname(); 
@@ -53,9 +51,9 @@ class HostController extends AppController
             $username = User::username();
 
             if(Host::data()->user_id == User::id()) {
-                echo "[$username@$hostname$pwd]#";
+                echo "[$username@$hostname]#";
             } else {  
-                echo "[$username@$hostname$pwd]>";
+                echo "[$username@$hostname]>";
             }
             
             exit;

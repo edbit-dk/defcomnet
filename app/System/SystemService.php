@@ -119,11 +119,7 @@ class SystemService
         sleep(1);
 
         echo <<< EOT
-        ERROR: UNAUTHORIZED ACCESS DETECTED!
-
-        WARNING: ACCESS PROHIBITED WITHOUT VALID CREDENTIALS.
-        BY REGISTERING AN ACCOUNT, YOU AGREE TO TOTAL MONITORING 
-        OF YOUR DATA TRAFFIC!
+        ERROR: UNAUTHORIZED ACCESS DETECTED.
 
         LOGON:
         EOT;
@@ -138,9 +134,10 @@ class SystemService
         echo <<< EOT
         ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM
         COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
+        -Server $server_id-
 
-        ACCOUNT: $username. 
-        SESSION: $last_login.
+        ACCOUNT: $username
+        SESSION: $last_login
         __________________________________________
         EOT;
     }

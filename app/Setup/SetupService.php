@@ -8,11 +8,9 @@ use DB\Migrations\HostTable;
 use DB\Migrations\HostUserTable;
 use DB\Migrations\HostNodeTable;
 use DB\Migrations\HostFileTable;
-use DB\Migrations\HostFolderTable;
 use DB\Migrations\HelpTable;
 use DB\Migrations\EmailTable;
 use DB\Migrations\FileTable;
-use DB\Migrations\FolderTable;
 
 use DB\Seeders\LevelSeeder;
 use DB\Seeders\UserSeeder;
@@ -22,7 +20,6 @@ use DB\Seeders\HostUnixUserSeeder;
 use DB\Seeders\HostNodeSeeder;
 use DB\Seeders\HelpSeeder;
 use DB\Seeders\FileSeeder;
-use DB\Seeders\FolderSeeder;
 
 class SetupService
 {
@@ -33,7 +30,6 @@ class SetupService
         self::hosts();
         self::nodes();
         self::accounts();
-        self::folders();
         self::files();
         self::help();
     }
@@ -72,13 +68,6 @@ class SetupService
     {
         HostTable::up();
         HostSeeder::run();
-    }
-
-    public static function folders()
-    {
-        FolderTable::up();
-        HostFolderTable::up();
-        FolderSeeder::run();
     }
 
     public static function files()

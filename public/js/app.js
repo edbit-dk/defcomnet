@@ -85,31 +85,24 @@ document.getElementById('play-button').addEventListener('click', toggleMusic);
 // Function to handle redirect
 function handleResponse(response, timeout = 1000) {
 
-    if (response.startsWith('TRYING')) {
-        setTimeout(function() {
-            redirectTo('');
-        }, timeout);
+    // Rens responsen for eventuelle skjulte tegn
+    const cleanResponse = response.trim();
+
+    if (cleanResponse.startsWith('TRYING')) {
+        setTimeout(function() { redirectTo('') }, timeout);
     }
 
-    if (['SUCCESS: SESSION TERMINATED'].includes(response)) {
-        setTimeout(function() {
-            redirectTo('');
-        }, timeout);
+    if (cleanResponse.includes('SUCCESS: SESSION TERMINATED')) {
+        setTimeout(function() { redirectTo('') }, timeout);
     }
 
-    console.log(response);
-
-    if (['SUCCESS: SECURITY'].includes(response)) {
-        setTimeout(function() {
-            redirectTo('');
-        }, timeout);
+    if (cleanResponse.includes('SUCCESS: SECURITY ACCESS CODE SEQUENCE ACCEPTED')) {
+        setTimeout(function() { redirectTo('', true) }, timeout);
     }
 
-    if (['SUCCESS: AUTHENTICATION COMPLETE'].includes(response)) {
-        setTimeout(function() {
-            sessionStorage.setItem('host', true);
-            redirectTo('');
-        }, timeout);
+    if (cleanResponse.includes('SUCCESS: AUTHENTICATION COMPLETE')) {
+        sessionStorage.setItem('host', true);
+        setTimeout(function() { redirectTo('') }, timeout);
     }
 
 }

@@ -1,0 +1,32 @@
+UNIX
+BSD UNIX
+System III
+System V
+VMS
+RSX-11
+RSTS/E
+TOPS-10
+TOPS-20
+MVS
+VM/CMS
+PRIMOS
+MS-DOS
+PC-DOS
+CP/M
+Apple DOS
+ProDOS
+Mac OS System 1
+Mac OS System 2
+Mac OS System 3
+Mac OS System 4
+Mac OS System 5
+Mac OS System 6
+AmigaOS
+Atari TOS
+TRS-DOS
+Commodore BASIC
+Commodore KERNAL
+Xenix
+VENIX
+MULTICS
+Domain/OS

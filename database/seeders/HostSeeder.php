@@ -14,7 +14,7 @@ class HostSeeder extends HostTable
      */
     public static function run(): void
     {
-        $file = BASE_PATH . '/public/text/hosts_list.txt';
+        $file = BASE_PATH . '/public/text/mainframe_list.txt';
         if (!file_exists($file)) {
             die("File not found!");
         }

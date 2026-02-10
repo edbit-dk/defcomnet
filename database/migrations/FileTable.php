@@ -17,9 +17,8 @@ class FileTable extends File
         DB::schema()->create((new self)->table, function (Blueprint $table) {
             $table->increments('id');
             $table->string('filename');
+            $table->string('encrypt_key');
             $table->longText('content')->nullable();
-            $table->unsignedInteger('folder_id');
-            $table->foreign('folder_id')->references('id')->on('folders')->onDelete('cascade');
             $table->unsignedInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->datetimes();

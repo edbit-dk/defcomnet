@@ -9,7 +9,7 @@ use App\API\APIController;
 // App
 $app->get('/', [AppController::class, 'home']);
 $app->get('/main', [AppController::class, 'main']);
-$app->get('/ver', [AppController::class, 'version']);
+$app->get('/version', [AppController::class, 'version']);
 
 // Music
 $app->get('/music', [AppController::class, 'music']);

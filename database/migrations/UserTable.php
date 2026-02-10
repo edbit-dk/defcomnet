@@ -20,11 +20,10 @@ class UserTable extends User
             $table->string('username')->unique();
             $table->string('email')->unique()->nullable();
             $table->string('code')->unique();
-            $table->enum('group', ['system', 'real', 'admin', 'anonymous', 'bot'])->default('real');
             $table->string('password')->nullable();
             $table->unsignedTinyInteger('level_id')->default(0);
             $table->boolean('is_admin')->default(0);
-            $table->boolean('active')->default(1);
+            $table->boolean('is_active')->default(1);
             $table->unsignedTinyInteger('xp')->default(0);
             $table->ipAddress('ip')->nullable();
             $table->timestamp('last_login')->nullable();

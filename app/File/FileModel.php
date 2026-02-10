@@ -6,7 +6,6 @@ use App\AppModel;
 
 use App\User\UserModel as User;
 use App\Host\HostModel as Host;
-use App\Folder\FolderModel as Folder;
 
 class FileModel extends AppModel
 {
@@ -17,7 +16,6 @@ class FileModel extends AppModel
     protected $maps = [
         'filename' => 'filename',
         'content' => 'content',
-        'folder_id' => 'folder_id',
         'host_id' => 'host_id',
         'user_id' => 'user_id',
     ];
@@ -34,9 +32,4 @@ class FileModel extends AppModel
         return $this->belongsTo(Host::class);
     }
 
-    // A file belongs to a folder
-    public function folder()
-    {
-        return $this->belongsTo(Folder::class);
-    }
 }

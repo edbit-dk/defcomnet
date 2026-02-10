@@ -2,7 +2,7 @@
 
 return [
     [
-        'cmd' => 'help', 
+        'cmd' => 'HELP', 
         'input' => '[cmd|page]', 
         'info' => 'shows info about command',
         'is_user' => 1,
@@ -11,7 +11,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'uplink', 
+        'cmd' => 'UPLINK', 
         'input' => '<access code>', 
         'info' => 'uplink to network',
         'is_user' => 0,
@@ -20,7 +20,7 @@ return [
         'is_guest' => 0
     ],
     [
-        'cmd' => 'newuser', 
+        'cmd' => 'REGISTER', 
         'input' => '<username>', 
         'info' => 'create account',
         'is_user' => 0,
@@ -29,7 +29,7 @@ return [
         'is_guest' => 0
     ],
     [
-        'cmd' => 'logon', 
+        'cmd' => 'LOGON', 
         'input' => '<username>', 
         'info' => 'login (alias: logon) ',
         'is_user' => 0,
@@ -38,7 +38,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'logout', 
+        'cmd' => 'LOGOUT', 
         'input' => NULL, 
         'info' => 'leave host/node (alias: exit, dc, quit, close) ',
         'is_user' => 1,
@@ -47,16 +47,16 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'ver', 
+        'cmd' => 'VERSION', 
         'input' => NULL, 
-        'info' => 'HackNet OS version',
+        'info' => 'SysCorpOS V.1.9.84',
         'is_user' => 1,
         'is_host' => 1,
         'is_visitor' => 1,
         'is_guest' => 1
     ],
     [
-        'cmd' => 'music', 
+        'cmd' => 'MUSIC', 
         'input' => '<start|stop|next>', 
         'info' => 'play 80s music',
         'is_user' => 1,
@@ -65,7 +65,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'color', 
+        'cmd' => 'COLOR', 
         'input' => '<green|white|yellow|blue>', 
         'info' => 'terminal color',
         'is_user' => 1,
@@ -74,7 +74,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'term', 
+        'cmd' => 'TERM', 
         'input' => '<DEC-VT100|IBM-3270>', 
         'info' => 'change terminal mode',
         'is_user' => 1,
@@ -83,7 +83,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'scan', 
+        'cmd' => 'SCAN', 
         'input' => NULL, 
         'info' => 'list connected nodes (alias: scan)',
         'is_user' => 1,
@@ -92,7 +92,7 @@ return [
         'is_guest' => 0
     ],
     [
-        'cmd' => 'connect', 
+        'cmd' => 'CONNECT', 
         'input' => '<host>', 
         'info' => 'connect to host (alias: connect)',
         'is_user' => 1,
@@ -101,7 +101,7 @@ return [
         'is_guest' => 0
     ],
     [
-        'cmd' => 'mail', 
+        'cmd' => 'MAIL', 
         'input' => '[send|read|list|delete]', 
         'info' => "email user: -s <subject> <user>[@host] < <body> \n
         list emails: [-l] \n
@@ -115,16 +115,7 @@ return [
         'is_guest' => 0
     ],
     [
-        'cmd' => 'cd', 
-        'input' => '[folder]', 
-        'info' => 'change directory',
-        'is_user' => 0,
-        'is_host' => 1,
-        'is_visitor' => 0,
-        'is_guest' => 1
-    ],
-    [
-        'cmd' => 'ls', 
+        'cmd' => 'DIR', 
         'input' => NULL, 
         'info' => 'list files on host (alias: dir)',
         'is_user' => 0,
@@ -133,7 +124,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'cat', 
+        'cmd' => 'TYPE', 
         'input' => '<filename>', 
         'info' => 'print contents of file (alias: more, open)',
         'is_user' => 0,
@@ -142,7 +133,7 @@ return [
         'is_guest' => 1
     ],
     [
-        'cmd' => 'debug', 
+        'cmd' => 'DEBUG', 
         'input' => '[dump]', 
         'info' => 'run memory dump on accounts.f',
         'is_user' => 1,

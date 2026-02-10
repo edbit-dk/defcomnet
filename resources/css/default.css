@@ -27,7 +27,7 @@ html, body {
 #terminal-wrapper {
     /* Desktop: Fylder 90% af skærmen med en max-bredde */
     width: 90vw;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     height: 90vh;
     
     background-color: var(--fallout-bg);
@@ -42,7 +42,7 @@ html, body {
     box-shadow: inset 0 0 150px rgba(0,0,0,0.9), 0 0 50px rgba(0,0,0,1);
     border-radius: 15px; /* Lidt runding af "glasset" */
     
-    overflow-y: auto; 
+    overflow-y: auto;
     position: relative;
 }
 
@@ -81,9 +81,16 @@ html, body {
 #terminal {
     white-space: pre-wrap;
     word-wrap: break-word;
+    word-break: break-all; /* Tvinger knæk hvis en linje er for lang til skærmen */
     font-size: var(--font-size);
     line-height: 1.2;
-   /* text-transform: uppercase; */
+    
+    /* Nye tilføjelser for at sikre luft til højre */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 10px; /* En lille sikkerhedsmargin internt */
+    margin: 0;
 }
 
 #prompt {
@@ -105,8 +112,6 @@ html, body {
     font-size: inherit;
     flex-grow: 1;
     min-width: 200px;
-    /* margin-left: 1ch; */
-   /* text-transform: uppercase; */
     
     /* Tyk grøn markør */
     caret-shape: block; 

@@ -5,7 +5,6 @@ namespace App\File;
 use App\AppController;
 
 use App\File\FileService as File;
-use App\Folder\FolderService as Folder;
 
 use App\User\UserService as User;
 use App\Host\HostService as Host;
@@ -15,9 +14,9 @@ class FileController extends AppController
 
     public function files()
     {
-       $files = Host::data()->files()->where('folder_id', Folder::id())->get();
+       $files = Host::data()->files()->get();
 
-        // Loop through each top-level folder and format the structure
+        // Loop through each top-level file
         foreach ($files as $file) {
             echo "$file->filename\n";
         }
@@ -25,31 +24,18 @@ class FileController extends AppController
 
     public function ls()
     {
-        if(!Folder::root()) {
-            return $this->files();
-        } else {
-            return $this->dir();
-        } 
+        return $this->files(); 
     }
 
-    public function dir()
-    {
-        $folders = Folder::list();
-
-        // Loop through each top-level folder and format the structure
-        foreach ($folders as $folder) {
-            echo "$folder->foldername ";
-        }
-    }
 
     public function cat()
     {
-        $file = Host::data()->file($$this->request[0], Folder::id());
+        $file = Host::data()->file($$this->request[0]);
 
         if($file) {
             echo $file->content;
         } else {
-            echo 'UNKNOWN FILE';
+            echo 'ERROR: UNKNOWN FILE';
         }
     }
 

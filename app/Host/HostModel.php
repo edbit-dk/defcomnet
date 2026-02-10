@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\User\UserModel as User;
 use App\Level\LevelModel as Level;
 use App\File\FileModel as File;
-use App\Folder\FolderModel as Folder;
 
 use App\AppModel;
 
@@ -41,16 +40,11 @@ class HostModel extends AppModel
         return $this->hasMany(File::class, 'host_id');
     }
 
-    public function file($name, $folder_id)
+    public function file($name)
     {
-        return $this->files()->where('folder_id', $folder_id)->where('filename', $name)->first();
+        return $this->files()->where('filename', $name)->first();
     }
 
-    // A host can have many folders
-    public function folders()
-    {
-        return $this->hasMany(Folder::class, 'host_id');
-    }
 
     public function users(): BelongsToMany
     {

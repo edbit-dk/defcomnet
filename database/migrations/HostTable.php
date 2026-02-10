@@ -23,14 +23,14 @@ class HostTable extends Host
             $table->string('password')->nullable();
             $table->text('welcome')->nullable();
             $table->string('org')->nullable();
-            $table->string('os')->nullable();
+            $table->enum('os', ['V/OS', 'MV/OS', 'VAX/OS'])->default('V/OS');
             $table->string('location')->nullable();
             $table->ipAddress('ip')->unique();
             $table->decimal('ip_num', 39,0)->unsigned();
             $table->text('motd')->nullable();
             $table->text('notes')->nullable();
-            $table->boolean('active')->default(1);
-            $table->boolean('network')->default(0);
+            $table->boolean('is_active')->default(1);
+            $table->boolean('is_network')->default(0);
             $table->integer('level_id')->default(1);
             $table->datetimes();
         });

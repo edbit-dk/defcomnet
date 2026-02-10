@@ -38,14 +38,14 @@ class SetupController extends AppController
        return Setup::nodes();
     }
 
-    public function folders()
-    {
-       return Setup::folders();
-    }
-
     public function files()
     {
        return Setup::files();
+    }
+
+   public function help()
+    {
+       return Setup::help();
     }
     
 }

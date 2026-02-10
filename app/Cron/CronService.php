@@ -20,10 +20,9 @@ class CronService
         $js .= file_get_contents(BASE_PATH . '/resources/js/terminal.js');
         $js .= file_get_contents(BASE_PATH . '/resources/js/music.js');
 
-        // $css = file_get_contents(BASE_PATH . '/resources/css/reset.css');
-        // $css .= file_get_contents(BASE_PATH . '/resources/css/main.css');
-        // $css .= file_get_contents(BASE_PATH . '/resources/css/terminal.css');
-        $css = file_get_contents(BASE_PATH . '/resources/css/default.css');
+        $css = file_get_contents(BASE_PATH . '/resources/css/reset.css');
+        $css .= file_get_contents(BASE_PATH . '/resources/css/fonts.css');
+        $css .= file_get_contents(BASE_PATH . '/resources/css/default.css');
 
         file_put_contents(BASE_PATH . '/public/js/app.js', $js);
         file_put_contents(BASE_PATH . '/public/js/app.min.js', minify_js($js));
