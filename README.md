@@ -19,13 +19,14 @@ The main focus of the project is to educate about internet and terminal history 
 - West-Tek = Defense & Communications Solutions (DEF-COM)
 - Repconn =  Space HeliX Ventures (SpaceH) 
 - The Calculator = The Colossus
+- The Institute = Control & Automation Industries (CAI)
 
 # World Structure 
 SCS (SYSCORP-NET)
-- AI (VAX/OS, cAI, NEURAL-NET)
-- CON-SEC (cAI, VAX/OS, CONSEC-NET)
-- DEF-COM (VAX/OS, DEFCOM-NET)
-- GEC (IDM, SPACEH, (M)V/OS, ROBCOM, GEC-NET,)
+- CAI (VAX/OS, cAI, NEURAL-NET)
+- CSC (cAI, VAX/OS, CONSEC-NET)
+- DFC (VAX/OS, DEFCOM-NET)
+- GEC (IDM, SpaceH, (M)V/OS, RobCom, GEC-NET)
 
 # Roadmap
 - [X] Boot sequence
