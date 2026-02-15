@@ -19,7 +19,7 @@ The main focus of the project is to educate about internet and terminal history 
 - West-Tek = Defense & Communications Industries (DEF-COM / DFC)
 - Repconn =  Space HeliX Industries (SpaceH Ind.) 
 - The Calculator = The Colossus
-- The Institute = Computation & Advanced Intelligence (CAI)
+- The Institute = Control & Automation Institute (CAI)
 
 # World Structure 
 SCS (SYSCORP-NET)
