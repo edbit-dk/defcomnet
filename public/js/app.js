@@ -102,7 +102,7 @@ function handleResponse(response, timeout = 2500) {
 
     if (cleanResponse.includes('SUCCESS: LOGON ACCEPTED')) {
         sessionStorage.setItem('host', true);
-        setTimeout(function() { redirectTo('') }, timeout);
+        setTimeout(function() { redirectTo('', true) }, timeout);
     }
 
 }
