@@ -9,7 +9,7 @@ return [
     'date' => 'D M j Y H:i:s',
     'timestamp' => 'Y-m-d H:i:s',
     'unix_timestamp' => 'D M j H:i:s Y',
-    'email' => 'root@hacklab',
+    'email' => 'edbit@edbit.dk',
     'public' => BASE_PATH . '/public/',
     'views' =>  BASE_PATH . '/resources/views/',
     'database' => BASE_PATH . '/database/',
@@ -30,7 +30,7 @@ return [
     'db' => [
         'driver' => 'mysql',
         'host' => '127.0.0.1',
-        'database' => 'defcom_net',
+        'database' => 'fallhack',
         'username' => 'root',
         'password' => 'mysql',
         'charset' => 'utf8',

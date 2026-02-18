@@ -199,7 +199,7 @@ function random_str(
 function word_pass($length = false) {
 
     if(!$length) {
-        $length = rand(4,15);
+        $length = rand(6,15);
     }
 
     return wordlist($length, 1)[0];
@@ -266,10 +266,10 @@ function random_welcome() {
 function random_date($start = false, $end = false) {
     // Set the start and end timestamps
     if(!$start) {
-        $start = strtotime('1969-01-01 00:00:00');
+        $start = strtotime('1975-01-01 00:00:00');
     }
     if(!$end) {
-        $end = strtotime('1983-12-31 23:59:59');
+        $end = strtotime('1984-04-04 23:59:59');
     }    
     // Generate a random timestamp within the range
     $randomTimestamp = mt_rand($start, $end);

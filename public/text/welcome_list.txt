@@ -1,34 +1,34 @@
-All activity may be monitored and recorded.
-Unauthorized access will be prosecuted to the fullest extent of the law.
-Warning: This system is for authorized users only.
-Any unauthorized access will be logged.
-Restricted access. For authorized users only.
-Alert: System is being monitored for security purposes.
-This system is subject to audit and monitoring.
-Unauthorized use of this system is prohibited.
-Warning: All activity is logged.
-Security Notice: Unauthorized access will be reported.
-Welcome, user. Unauthorized activity may result in disciplinary action.
-Security alert: Unauthorized login attempt will trigger an investigation.
-System monitoring in progress. Any unauthorized access will be traced.
-System access is logged. Any unauthorized actions will be reported.
-This system is protected by security monitoring software.
-Warning: This system is under constant surveillance.
-Unauthorized users will be locked out.
-Access to this system is restricted. Unauthorized access will result in termination.
-Warning: Violations of system policy may result in the termination of access.
-This system is a restricted network. Authorized users only.
-System access is monitored for security purposes.
-Alert: All commands are logged for security.
-Unauthorized users will be reported to system administrators.
-Warning: Any attempts to bypass security will be traced.
-Access to this system is strictly monitored.
-Notice: Your session may be monitored for security and compliance.
-Access is restricted to authorized personnel only.
-This system is monitored for unauthorized access.
-Security Warning: Unauthorized use is prohibited.
-All actions are logged. Use of this system is restricted.
-Warning: Any unauthorized access will result in legal action.
-This system is monitored 24/7 for security purposes.
-Security Warning: Only authorized users are allowed access.
-All actions on this system are logged and monitored.
+ALL ACTIVITY MAY BE MONITORED AND RECORDED.
+UNAUTHORIZED ACCESS WILL BE PROSECUTED TO THE FULLEST EXTENT OF THE LAW.
+WARNING: THIS SYSTEM IS FOR AUTHORIZED USERS ONLY.
+ANY UNAUTHORIZED ACCESS WILL BE LOGGED.
+RESTRICTED ACCESS. FOR AUTHORIZED USERS ONLY.
+ALERT: SYSTEM IS BEING MONITORED FOR SECURITY PURPOSES.
+THIS SYSTEM IS SUBJECT TO AUDIT AND MONITORING.
+UNAUTHORIZED USE OF THIS SYSTEM IS PROHIBITED.
+WARNING: ALL ACTIVITY IS LOGGED.
+SECURITY NOTICE: UNAUTHORIZED ACCESS WILL BE REPORTED.
+WELCOME, USER. UNAUTHORIZED ACTIVITY MAY RESULT IN DISCIPLINARY ACTION.
+SECURITY ALERT: UNAUTHORIZED LOGIN ATTEMPT WILL TRIGGER AN INVESTIGATION.
+SYSTEM MONITORING IN PROGRESS. ANY UNAUTHORIZED ACCESS WILL BE TRACED.
+SYSTEM ACCESS IS LOGGED. ANY UNAUTHORIZED ACTIONS WILL BE REPORTED.
+THIS SYSTEM IS PROTECTED BY SECURITY MONITORING SOFTWARE.
+WARNING: THIS SYSTEM IS UNDER CONSTANT SURVEILLANCE.
+UNAUTHORIZED USERS WILL BE LOCKED OUT.
+ACCESS TO THIS SYSTEM IS RESTRICTED. UNAUTHORIZED ACCESS WILL RESULT IN TERMINATION.
+WARNING: VIOLATIONS OF SYSTEM POLICY MAY RESULT IN THE TERMINATION OF ACCESS.
+THIS SYSTEM IS A RESTRICTED NETWORK. AUTHORIZED USERS ONLY.
+SYSTEM ACCESS IS MONITORED FOR SECURITY PURPOSES.
+ALERT: ALL COMMANDS ARE LOGGED FOR SECURITY.
+UNAUTHORIZED USERS WILL BE REPORTED TO SYSTEM ADMINISTRATORS.
+WARNING: ANY ATTEMPTS TO BYPASS SECURITY WILL BE TRACED.
+ACCESS TO THIS SYSTEM IS STRICTLY MONITORED.
+NOTICE: YOUR SESSION MAY BE MONITORED FOR SECURITY AND COMPLIANCE.
+ACCESS IS RESTRICTED TO AUTHORIZED PERSONNEL ONLY.
+THIS SYSTEM IS MONITORED FOR UNAUTHORIZED ACCESS.
+SECURITY WARNING: UNAUTHORIZED USE IS PROHIBITED.
+ALL ACTIONS ARE LOGGED. USE OF THIS SYSTEM IS RESTRICTED.
+WARNING: ANY UNAUTHORIZED ACCESS WILL RESULT IN LEGAL ACTION.
+THIS SYSTEM IS MONITORED 24/7 FOR SECURITY PURPOSES.
+SECURITY WARNING: ONLY AUTHORIZED USERS ARE ALLOWED ACCESS.
+ALL ACTIONS ON THIS SYSTEM ARE LOGGED AND MONITORED.

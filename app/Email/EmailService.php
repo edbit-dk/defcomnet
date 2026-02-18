@@ -14,7 +14,7 @@ class EmailService
 {
     public static function version()
     {
-        echo 'Mail version 1.1 6/6/83';
+        echo 'MAIL V1.1 4/4/84';
     }
 
     public static function handle($data)
@@ -82,7 +82,7 @@ class EmailService
 
         $count = $emails->count();
         $new = Email::where('recipient', self::contact())->where('is_read', 0)->count();
-        echo "$count message(s) | $new unread \n";
+        echo "$count MESSAGE(S) | $new UNREAD \n";
 
         foreach ($emails->get() as $email) {
             $id++;
@@ -98,9 +98,9 @@ class EmailService
     {
         $emails = Email::where('recipient', self::contact())->where('is_read', 0);
         if($emails->exists()) {
-            return "You have new mail.";
+            return "YOU GOT MAIL";
         }
-        return "You have no mail.";
+        return "NO MAILS";
 
     }
 
@@ -126,11 +126,11 @@ class EmailService
             }
 
             echo <<< EOT
-            From: $from
-            To: $to
-            Date: $date
-            Subject: $email->subject
-            Message:
+            FROM: $from
+            TO: $to
+            DATE: $date
+            SUBJECT: $email->subject
+            MESSAGE:
             
             $email->message
             EOT;
@@ -140,7 +140,7 @@ class EmailService
             ->update(['is_read' => 1]);
 
         } else {
-            echo "ERROR: Unknown Email.";
+            echo "ERROR: UNKNOWN EMAIL";
         }
 
     }
@@ -153,7 +153,7 @@ class EmailService
             $emails = Email::where('sender', self::contact());
 
             $count = $emails->count();
-            echo "$count message(s)\n";
+            echo "$count MESSAGE(S)\n";
 
             foreach ($emails->get() as $email) {
                 $id++;
@@ -201,11 +201,11 @@ class EmailService
             ]);
 
             if(!$system_mail) {
-                echo 'Email Sent.';
+                echo 'SUCCESS: EMAIL SENT';
             }
             
         } else {
-            echo 'Unknown Recipient.';
+            echo 'ERROR: UNKNOWN RECIPIENT';
         }
     }
 
@@ -216,12 +216,12 @@ class EmailService
             ->where('user_id', User::auth())->delete();
 
             if(!$email) {
-                echo 'Unknown Email.';
+                echo 'ERROR: UNKNOWN EMAIL';
             } else {
-                echo 'Email Deleted.';
+                echo 'SUCCESS: EMAIL DELETED';
             }
         } else {
-            echo 'Unknown Email.';
+            echo 'ERROR: UNKNOWN EMAIL';
         }
     }
 }

@@ -70,33 +70,40 @@ function clearTerminal() {
 
 // Function to load the saved theme from localStorage
 function loadSavedTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        setTheme(savedTheme);
-    }
+    const savedTheme = localStorage.getItem('theme') || 'DEFAULT';
+    setTheme(savedTheme);
 }
 
-// Function to set text and background color
-function setTheme(color) {
-    const colors = {
-        green: "#2dfd8b",
-        white: "#EAF7F9",
-        yellow: "#ffb642",
-        blue: "#0CD7CF",
+function setTheme(org) {
+    const orgs = {
+        'CAI': { color: "#EAF7F9", bg: "#0d1112" }, // Hvid/Grålig
+        'CSC': { color: "#0CD7CF", bg: "#051112" }, // Blålig
+        'DFC': { color: "#FF3131", bg: "#120505" }, // Rødlig
+        'GEC': { color: "#c3a747", bg: "#121005" }, // Gul/Amber
+        'FO' : { color: "#FF8C00", bg: "#120a05", noise: "0.45" }, // Lilla
+        'DEFAULT': { color: "#2DFD8B", bg: "#0b1a13" } // Grøn
     };
 
-    const defaultColor = "green";
-    const themeColor = colors[color] || colors[defaultColor];
+    const theme = orgs[org] || orgs['DEFAULT'];
+    const wrapper = $('#terminal-wrapper');
 
-    // Remove any existing theme style tag
-    $('#theme-style').remove();
+    // Opdater CSS variabler
+    document.documentElement.style.setProperty('--fallout-green', theme.color);
+    document.documentElement.style.setProperty('--fallout-bg', theme.bg);
+    document.documentElement.style.setProperty('--noise-opacity', theme.noise);
 
-    // Create a new <style> tag and append it to the <head>
-    const styleTag = `<style id="theme-style"> * { color: ${themeColor} !important; } </style>`;
-    $('head').append(styleTag);
+    // Opdater variablerne på :root
+    document.documentElement.style.setProperty('--fallout-green', theme.color);
+    document.documentElement.style.setProperty('--fallout-bg', theme.bg);
 
-    // Store the color name (not the hex code) for persistence
-    localStorage.setItem('theme', color);
+    // Tilføj eller fjern glitch-effekten
+    if (org === 'UG') {
+        wrapper.addClass('hacker-glitch');
+    } else {
+        wrapper.removeClass('hacker-glitch');
+    }
+
+    localStorage.setItem('theme', org);
 }
 
 // Function to set terminal font

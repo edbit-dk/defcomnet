@@ -11,7 +11,6 @@ if(config('setup')) {
     $app->get('/setup/hosts', [SetupController::class, 'hosts']);
     $app->get('/setup/accounts', [SetupController::class, 'accounts']);
     $app->get('/setup/nodes', [SetupController::class, 'nodes']);
-    $app->get('/setup/folders', [SetupController::class, 'folders']);
     $app->get('/setup/files', [SetupController::class, 'files']);
     $app->get('/setup/help', [SetupController::class, 'help']);
 }

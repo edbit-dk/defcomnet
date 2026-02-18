@@ -19,6 +19,7 @@ class UserTable extends User
             $table->string('fullname')->nullable();
             $table->string('username')->unique();
             $table->string('email')->unique()->nullable();
+            $table->enum('role', ['USER', 'OPERATOR', 'ADMIN'])->default('USER');
             $table->string('code')->unique();
             $table->string('password')->nullable();
             $table->unsignedTinyInteger('level_id')->default(0);

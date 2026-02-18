@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=1000">
+        <meta name="viewport" content="width=1200">
         <title><?php echo config('name') ?></title>
         <link rel="icon" type="image/x-icon" href="<?php base_url() ?>img/favicon.ico">
         <link rel="stylesheet" href="<?php base_url('/css/app.min.css?v=' . $_SESSION['hash']) ?>">

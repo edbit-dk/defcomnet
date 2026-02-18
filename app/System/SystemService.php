@@ -82,18 +82,21 @@ class SystemService
         Session::set($code, $access_code);
 
         echo <<< EOT
-        PROPERTY OF GENERAL ENERGY COMPANY (GEC CORP)
-        ______________________________________________
+        UPLINK WITH CENTRAL GEC-NET INITIATED...
+        
+        =-----------------------------------------------=
+        | PROPERTY OF GENERAL ENERGY COMPANY (GEC CORP) |
+        =-----------------------------------------------=
 
         THIS TERMINAL IS USED TO INPUT COMMAND DATA 
-        FOR AUTHORIZED EMPLOYEES ASSIGNED TO 
-        THE GEC CORPORATION. THIS TERMINAL ALSO ALLOWS 
+        FOR AUTHORIZED PERSONNEL ASSIGNED TO THE 
+        GEC CORPORATION. THIS TERMINAL ALSO ALLOWS 
         ACCESS TO GEC-NET VIA THE DEFCOM-NET GATEWAY.
 
-        UPLINK WITH CENTRAL GEC-NET INITIATED.
+        -------------------------------------------------
         ENTER SECURITY ACCESS CODE SEQUENCE: 
-        
         [ {$access_code} ]
+        -------------------------------------------------
 
         EOT;
     }
@@ -109,9 +112,9 @@ class SystemService
         CONNECTED TO GEC-NET PORT $port
         $date
 
-
-        WELCOME TO ROBCOM INDUSTRIES (TM) TERMLINK
-        __________________________________________
+        =--------------------------------------------=
+        | WELCOME TO ROBCOM INDUSTRIES (TM) TERMLINK |
+        =--------------------------------------------=
 
         EOT;
     }
@@ -123,8 +126,10 @@ class SystemService
         $server_id = Host::id();
 
         echo <<< EOT
-        ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM
-        COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
+        =--------------------------------------------=
+        | ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM |
+        |    COPYRIGHT 1975-1977 ROBCOM INDUSTRIES   |
+        =--------------------------------------------=
 
         WELCOME, $username ($last_login)
         __________________________________________

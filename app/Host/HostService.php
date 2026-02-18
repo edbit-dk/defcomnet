@@ -131,7 +131,7 @@ class HostService
         $host = Host::where('id', $data)
         ->orWhere('ip', $data)
         ->orWhere('hostname', $data)
-        ->where('active', 1)
+        ->where('is_active', 1)
         ->first();
 
         if (empty($host)) {

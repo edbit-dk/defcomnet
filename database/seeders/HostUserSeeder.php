@@ -35,8 +35,7 @@ class HostUserSeeder extends HostUserTable
                 ['username' => $username],
                 [
                 'fullname' => $fullname, 
-                'group' => 'admin', 
-                'password' => random_pass(),
+                'password' => word_pass(),
                 'code' => access_code(),
                 'level_id' => rand(1, 6),
                 'created_at' =>  random_date(),
@@ -63,14 +62,14 @@ class HostUserSeeder extends HostUserTable
                     $pairs = [[
                         'host_id' => $hostId,
                         'user_id' => $selectedUser['id'],
-                        'password'=> random_pass(),
+                        'password'=> word_pass(),
                         'last_session' => random_date(),
                     ]];
                 } else {
                     $pairs = array_map(fn($u) => [
                         'host_id' => $hostId,
                         'user_id' => $u['id'],
-                        'password'=> random_pass(),
+                        'password'=> word_pass(),
                         'last_session' => random_date(),
                     ], $matchedUsers);
                 }

@@ -62,7 +62,7 @@ class HostSeeder extends HostTable
                     'location' => $locVal,
                     'ip' => $host_ip,
                     'ip_num' => ipToNum($host_ip),
-                    'password' => random_pass(),
+                    'password' => word_pass(),
                     'os' => random_os(),
                     'welcome' => random_welcome(),
                     'level_id' => rand(1, 6),

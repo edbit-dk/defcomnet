@@ -66,7 +66,7 @@ return [
     ],
     [
         'cmd' => 'COLOR', 
-        'input' => '[GREEN|WHITE|YELLOW|BLUE]', 
+        'input' => '[DEFAULT|CAI|CSC|DFC|GEC|FO]', 
         'info' => 'TERMINAL COLOR MODE',
         'is_user' => 1,
         'is_host' => 1,

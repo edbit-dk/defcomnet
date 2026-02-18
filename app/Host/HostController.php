@@ -145,6 +145,8 @@ class HostController extends AppController
             exit;
         } 
 
+        echo "SEARCHING COMLINKS...\n\nACTIVE STATIONS:\n";
+
         foreach ($hosts as $host) {
 
             $access = ' ';
@@ -156,12 +158,11 @@ class HostController extends AppController
             if($host->user_id == User::auth()) {
                 $access = '#';
             }
-            $hostname = $host->hostname;
             
             echo <<<EOT
 
-            $access $hostname: $host->org - $host->location
-            
+            $access $host->hostname: $host->org ($host->location)
+
             EOT;
         }
         

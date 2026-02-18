@@ -47,12 +47,6 @@ class UserModel extends AppModel
         return $this->hasMany(Email::class);
     }
 
-    // A user can have many folders
-    public function folders()
-    {
-        return $this->hasMany(Folder::class);
-    }
-
     public function hosts(): BelongsToMany
     {
         return $this->BelongsToMany(Host::class, 'host_user', 'user_id', 'host_id');

@@ -54,8 +54,8 @@ class SetupService
     public static function accounts()
     {
         HostUserTable::up();
-        HostUnixUserSeeder::run();
-        HostUserSeeder::run();
+        //HostUnixUserSeeder::run();
+        //HostUserSeeder::run();
     }
 
     public static function users()
