@@ -74,6 +74,25 @@ function loadSavedTheme() {
     setTheme(savedTheme);
 }
 
+function themeConnection() {
+    const connectionText = $('#connection').text().toUpperCase();
+    
+    // Vi tjekker hvilke ord der findes i strengen [@XXXX-NET]
+    if (connectionText.includes('NEURAL-NET')) {
+        setTheme('CAI');
+    } else if (connectionText.includes('COPSEC-NET')) {
+        setTheme('CSC');
+    } else if (connectionText.includes('DEFCOM-NET')) {
+        setTheme('DFC');
+    } else if (connectionText.includes('GEC-NET')) {
+        setTheme('GEC');
+    } else if (connectionText.includes('FALL-OUT')) {
+        setTheme('FO');
+    } else {
+        setTheme('DEFAULT'); // Standard grøn
+    }
+}
+
 function setTheme(org) {
     const orgs = {
         'CAI': { color: "#EAF7F9", bg: "#0d1112" }, // Hvid/Grålig

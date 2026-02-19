@@ -43,6 +43,7 @@ $(document).ready(function() {
     } else {
 
         setTimeout(function() {
+            themeConnection();
             sendCommand('main', ''); // Send 'welcome' command if boot has been set
             $('#connection').load('connection');
         }, 500);

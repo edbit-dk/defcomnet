@@ -14,23 +14,6 @@ class HostNodeSeeder extends HostNodeTable
      */
     public static function run(): void
     {
-        // Batch insert
-        $chunkSize = 500;
-        $relations = Host::relations();
-
-        DB::connection()->beginTransaction();
-            try {
-                foreach (array_chunk($relations, $chunkSize) as $chunk) {
-                    DB::table((new self)->table)->insert($chunk);
-                }
-                    DB::connection()->commit();
-                    echo "Relations created: " . count($relations) . "\n";
-            } catch (\Exception $e) {
-                    DB::connection()->rollBack();
-                    echo "EROOR: " . $e->getMessage();
-            }        
-
-        /*
         $nodes = require BASE_PATH . '/config/nodes.php';
         $chunkSize = 500; // Adjust based on server capabilities
 
@@ -44,7 +27,24 @@ class HostNodeSeeder extends HostNodeTable
             DB::rollback();
             throw $e;
         }
-        */
+
+        /* Batch insert many nodes
+        $chunkSize = 500;
+        $relations = Host::relations();
+
+        DB::connection()->beginTransaction();
+            try {
+                foreach (array_chunk($relations, $chunkSize) as $chunk) {
+                    DB::table((new self)->table)->insert($chunk);
+                }
+                    DB::connection()->commit();
+                    echo "Relations created: " . count($relations) . "\n";
+            } catch (\Exception $e) {
+                    DB::connection()->rollBack();
+                    echo "EROOR: " . $e->getMessage();
+            }
+        */        
+
     }
     
 }

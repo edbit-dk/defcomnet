@@ -16,7 +16,7 @@ class LogTable extends Log
 
         DB::schema()->create((new self)->table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logname');
+            $table->string('name');
             $table->longText('content');
             $table->unsignedInteger('host_id')->nullable();
             $table->foreign('host_id')->references('id')->on('hosts');

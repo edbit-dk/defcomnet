@@ -16,9 +16,9 @@ class LevelTable extends Level
 
         DB::schema()->create((new self)->table, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('badge');
+            $table->string('status');
             $table->unsignedTinyInteger('level');
-            $table->unsignedTinyInteger('reward');
+            $table->unsignedTinyInteger('credit');
             $table->unsignedTinyInteger('min');
             $table->unsignedTinyInteger('max');
         });

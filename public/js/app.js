@@ -43,6 +43,7 @@ $(document).ready(function() {
     } else {
 
         setTimeout(function() {
+            themeConnection();
             sendCommand('main', ''); // Send 'welcome' command if boot has been set
             $('#connection').load('connection');
         }, 500);
@@ -88,16 +89,16 @@ function handleResponse(response, timeout = 2500) {
     // Rens responsen for eventuelle skjulte tegn
     const cleanResponse = response.trim();
 
-    if (cleanResponse.startsWith('TRYING')) {
-        setTimeout(function() { redirectTo('') }, timeout);
+    if (cleanResponse.startsWith('SUCCESS: ACCESSING')) {
+        setTimeout(function() { redirectTo('', true) }, timeout);
     }
 
     if (cleanResponse.includes('SUCCESS: LOGGING OUT')) {
-        setTimeout(function() { redirectTo('') }, timeout);
+        setTimeout(function() { redirectTo('', true) }, timeout);
     }
 
     if (cleanResponse.includes('SUCCESS: SECURITY ACCESS CODE SEQUENCE ACCEPTED')) {
-        setTimeout(function() { redirectTo('') }, timeout);
+        setTimeout(function() { redirectTo('', true) }, timeout);
     }
 
     if (cleanResponse.includes('SUCCESS: LOGON ACCEPTED')) {
@@ -598,6 +599,25 @@ function clearTerminal() {
 function loadSavedTheme() {
     const savedTheme = localStorage.getItem('theme') || 'DEFAULT';
     setTheme(savedTheme);
+}
+
+function themeConnection() {
+    const connectionText = $('#connection').text().toUpperCase();
+    
+    // Vi tjekker hvilke ord der findes i strengen [@XXXX-NET]
+    if (connectionText.includes('NEURAL-NET')) {
+        setTheme('CAI');
+    } else if (connectionText.includes('COPSEC-NET')) {
+        setTheme('CSC');
+    } else if (connectionText.includes('DEFCOM-NET')) {
+        setTheme('DFC');
+    } else if (connectionText.includes('GEC-NET')) {
+        setTheme('GEC');
+    } else if (connectionText.includes('FALL-OUT')) {
+        setTheme('FO');
+    } else {
+        setTheme('DEFAULT'); // Standard grøn
+    }
 }
 
 function setTheme(org) {

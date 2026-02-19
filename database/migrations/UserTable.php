@@ -25,7 +25,7 @@ class UserTable extends User
             $table->unsignedTinyInteger('level_id')->default(0);
             $table->boolean('is_admin')->default(0);
             $table->boolean('is_active')->default(1);
-            $table->unsignedTinyInteger('xp')->default(0);
+            $table->unsignedTinyInteger('credits')->default(0);
             $table->ipAddress('ip')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->datetimes();

@@ -111,8 +111,7 @@ class HostController extends AppController
 
             echo <<< EOT
 
-            TRYING $ip...
-            CONNECTED TO $host\n
+            SUCCESS: ACCESSING $ip...
             EOT;
             exit;
         }

@@ -82,16 +82,16 @@ class SystemService
         Session::set($code, $access_code);
 
         echo <<< EOT
-        UPLINK WITH CENTRAL GEC-NET INITIATED...
+        UPLINK WITH CENTRAL NETWORK INITIATED...
         
-        =-----------------------------------------------=
-        | PROPERTY OF GENERAL ENERGY COMPANY (GEC CORP) |
-        =-----------------------------------------------=
+        =----------------------------------------------------=
+        | PROPERTY OF INTERNATIONAL DATA MACHINES (IDM CORP) |
+        =----------------------------------------------------=
 
         THIS TERMINAL IS USED TO INPUT COMMAND DATA 
         FOR AUTHORIZED PERSONNEL ASSIGNED TO THE 
-        GEC CORPORATION. THIS TERMINAL ALSO ALLOWS 
-        ACCESS TO GEC-NET VIA THE DEFCOM-NET GATEWAY.
+        IDM CORPORATION. THIS TERMINAL ALSO ALLOWS 
+        ACCESS TO DEFCOM-NET.
 
         -------------------------------------------------
         ENTER SECURITY ACCESS CODE SEQUENCE: 
@@ -109,7 +109,7 @@ class SystemService
         $date = strtoupper(date('F jS, Y',));
 
         echo <<< EOT
-        CONNECTED TO GEC-NET PORT $port
+        CONNECTED TO CENTRAL NETOWRK PORT $port
         $date
 
         =--------------------------------------------=
@@ -126,10 +126,14 @@ class SystemService
         $server_id = Host::id();
 
         echo <<< EOT
+        CONNECTED TO DATA-NET
+
         =--------------------------------------------=
         | ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM |
         |    COPYRIGHT 1975-1977 ROBCOM INDUSTRIES   |
         =--------------------------------------------=
+        IDM CORP. (Armonk, New York)
+        MV/OS
 
         WELCOME, $username ($last_login)
         __________________________________________
@@ -161,9 +165,11 @@ class SystemService
         $current_date = datetime($host->created_at, config('unix_timestamp'));
 
         echo <<< EOT
-        ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM
-        COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
-        -Server $id-
+        =--------------------------------------------=
+        | ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM |
+        |    COPYRIGHT 1975-1977 ROBCOM INDUSTRIES   |
+        =--------------------------------------------=
+                         -SERVER $id-
 
         SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
@@ -177,14 +183,20 @@ class SystemService
     {
         $host = Host::data();
         $os = $host->os;
-        $welcome = $host->welcome;
         $org = $host->org;
         
         echo <<< EOT
-        $org
-        $os
+        CONNECTED TO $host->hostname
 
-        $welcome
+        =--------------------------------------------=
+        | ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM |
+        |    COPYRIGHT 1975-1977 ROBCOM INDUSTRIES   |
+        =--------------------------------------------=
+        $org - $os     
+
+        WELCOME, USER. AUTHORIZED PERSONNEL ONLY!
+        ______________________________________________
+
         EOT;
     }
 
@@ -225,9 +237,11 @@ class SystemService
         Host::root();
 
         echo <<< EOT
-        ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM
-        COPYRIGHT 1975-1977 ROBCOM INDUSTRIES
-        -Server $id-
+        =--------------------------------------------=
+        | ROBCOM INDUSTRIES VIRTUAL OPERATING SYSTEM |
+        |    COPYRIGHT 1975-1977 ROBCOM INDUSTRIES   |
+        =--------------------------------------------=
+                        -SERVER $id-
 
         SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
