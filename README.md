@@ -22,11 +22,12 @@ The main focus of the project is to educate about internet and terminal history 
 - The Institute = Control & Automation Institute (CAI)
 
 # World Structure 
-SCS (SYSCORP-NET)
-- CAI (VAX/OS, Colossus, NEURAL-NET)
-- CSC (CAI, VAX/OS, COPSEC-NET)
-- DFC (VAX/OS, DEFCOM-NET)
-- GEC (IDM, SpaceH, (M)V/OS, RobCom, GEC-NET)
+UNITED STATES OF CORPORATIONS (USC)
+- SCS (SYSCORP-NET) - ADMIN/BOARD
+- CAI (VAX/OS, Colossus, NEURAL-NET) - R&D
+- CSC (CAI, VAX/OS, COPSEC-NET) - POLICE/SECURITY 
+- DFC (VAX/OS, DEFCOM-NET) - MILITARY/TECH 
+- GEC (IDM, SpaceH, (M)V/OS, RobCom, GEC-NET) - ENERGY/INDUSTRY/INFRASTRUCTURE
 
 # Roadmap
 - [X] Boot sequence
