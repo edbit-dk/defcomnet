@@ -190,13 +190,12 @@ class SystemService
         $org = $host->org;
         
         echo <<< EOT
-        CONNECTED TO $host->hostname
-
         =-------------------------------------------------=
         | ROBCOM INDUSTRIES UNIFIED DISK OPERATING SYSTEM |
         |       COPYRIGHT 1975-1977 ROBCOM INDUSTRIES     |
         =-------------------------------------------------=
-        $org - $os     
+        $org 
+        $os   
 
         WELCOME, USER. AUTHORIZED PERSONNEL ONLY!
         ___________________________________________________

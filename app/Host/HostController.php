@@ -162,7 +162,7 @@ class HostController extends AppController
             
             echo <<<EOT
 
-            $access $host->hostname: $host->org ($host->location)
+            $access $host->hostname: $host->org - $host->location
 
             EOT;
         }

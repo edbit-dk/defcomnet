@@ -4,7 +4,7 @@ return [
     [
         'username' => 'ADMIN', 
         'email' => 'ADMIN@FALLHACK', 
-        'password' => random_pass(),
+        'password' => word_pass(),
         'code' => access_code(),
         'fullname' => 'FALLHACK ADMIN',
         'role' => 'ADMIN',
@@ -15,7 +15,7 @@ return [
     [
         'username' => 'OPERATOR', 
         'email' => 'OPERATOR@FALLHACK', 
-        'password' => random_pass(),
+        'password' => word_pass(),
         'code' => access_code(),
         'fullname' => 'FALLHACK OPERATOR',
         'role' => 'OPERATOR',
@@ -26,7 +26,7 @@ return [
     [
         'username' => 'USER', 
         'email' => 'USER@FALLHACK', 
-        'password' => random_pass(),
+        'password' => word_pass(),
         'code' => access_code(),
         'fullname' => 'FALLHACK USER',
         'role' => 'USER',

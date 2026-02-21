@@ -23,10 +23,10 @@ class HostTable extends Host
             $table->string('password')->nullable();
             $table->text('welcome')->nullable();
             $table->string('org')->nullable();
-            $table->enum('os', ['V/OS', 'MV/OS', 'VAX/OS'])->default('V/OS');
+            $table->enum('os', ['U/DOS V1.10', 'U/DOS V3.0', 'U/DOS V4.0', 'CAX/MUDOS V1.4', '[REDACTED]'])->default('U/DOS V1.10');
             $table->string('location')->nullable();
             $table->ipAddress('ip')->unique();
-            $table->decimal('ip_num', 39,0)->unsigned();
+            $table->decimal('ip_num', 39,0)->unsigned()->default(0);
             $table->text('motd')->nullable();
             $table->text('notes')->nullable();
             $table->boolean('is_active')->default(1);
