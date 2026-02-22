@@ -20,3 +20,4 @@ $app->get('/api', [APIController::class, 'authorize']);
 // Cron
 $app->get('/minify', [CronController::class, 'minify']);
 $app->get('/stats', [CronController::class, 'stats']);
+$app->get('/update', [CronController::class, 'update']);
