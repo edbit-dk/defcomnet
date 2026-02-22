@@ -111,15 +111,15 @@ class SystemService
         $remote_ip = remote_ip();
 
         echo <<< EOT
-        =--------------------------------------------=
-        | WELCOME TO ROBCOM INDUSTRIES (TM) TERMLINK |
-        =--------------------------------------------=
+        =------------------------------------------=
+        | WELCOME TO IDM CORPORATION (TM) TERMLINK |
+        =------------------------------------------=
         
         $remote_ip CONNECTED TO CENTRAL USOC-NET 
         ON $date PORT $port.
 
         SERVING US IS YOUR #1 PRIORITY.
-        ______________________________________________
+        ____________________________________________
         
         > REGISTER
         > LOGON
@@ -134,13 +134,13 @@ class SystemService
         $server_id = Host::id();
 
         echo <<< EOT
-        =-------------------------------------------------=
-        | ROBCOM INDUSTRIES UNIFIED DISK OPERATING SYSTEM |
-        |      COPYRIGHT 1975-1977 ROBCOM INDUSTRIES      |
-        =-------------------------------------------------=
+        =-----------------------------------------------=
+        | IDM CORPORATION UNIFIED DISK OPERATING SYSTEM |
+        |      COPYRIGHT 1975-1977 IDM CORPORATION      |
+        =-----------------------------------------------=
 
         WELCOME, $username ($last_login)
-        ___________________________________________________
+        _________________________________________________
         EOT;
     }
 
@@ -169,17 +169,17 @@ class SystemService
         $current_date = datetime($host->created_at, config('unix_timestamp'));
 
         echo <<< EOT
-        =-------------------------------------------------=
-        | ROBCOM INDUSTRIES UNIFIED DISK OPERATING SYSTEM |
-        |       COPYRIGHT 1975-1977 ROBCOM INDUSTRIES     |
-        =-------------------------------------------------=
+        =-----------------------------------------------=
+        | IDM CORPORATION UNIFIED DISK OPERATING SYSTEM |
+        |      COPYRIGHT 1975-1977 IDM CORPORATION      |
+        =-----------------------------------------------=
                           -SERVER $id-
 
         SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
 
         $system_info
-        ___________________________________________________ 
+        _________________________________________________
         EOT;
     }
 
@@ -190,15 +190,15 @@ class SystemService
         $org = $host->org;
         
         echo <<< EOT
-        =-------------------------------------------------=
-        | ROBCOM INDUSTRIES UNIFIED DISK OPERATING SYSTEM |
-        |       COPYRIGHT 1975-1977 ROBCOM INDUSTRIES     |
-        =-------------------------------------------------=
+        =-----------------------------------------------=
+        | IDM CORPORATION UNIFIED DISK OPERATING SYSTEM |
+        |      COPYRIGHT 1975-1977 IDM CORPORATION      |
+        =-----------------------------------------------=
         $org 
         $os   
 
         WELCOME, USER. AUTHORIZED PERSONNEL ONLY!
-        ___________________________________________________
+        _________________________________________________
 
         EOT;
     }
@@ -240,17 +240,17 @@ class SystemService
         Host::root();
 
         echo <<< EOT
-        =-------------------------------------------------=
-        | ROBCOM INDUSTRIES UNIFIED DISK OPERATING SYSTEM |
-        |       COPYRIGHT 1975-1977 ROBCOM INDUSTRIES     |
-        =-------------------------------------------------=
+        =-----------------------------------------------=
+        | IDM CORPORATION UNIFIED DISK OPERATING SYSTEM |
+        |      COPYRIGHT 1975-1977 IDM CORPORATION      |
+        =-----------------------------------------------=
                             -SERVER $id-
 
         SESSION: {$last_login} FROM $last_ip
         ($os): $current_date
         
         $system_info
-        __________________________________________________ 
+        _________________________________________________
         EOT;
     }
 

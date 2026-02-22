@@ -78,16 +78,16 @@ function themeConnection() {
     const connectionText = $('#connection').text().toUpperCase();
     
     // Vi tjekker hvilke ord der findes i strengen [@XXXX-NET]
-    if (connectionText.includes('NEURAL-NET')) {
-        setTheme('CAI');
-    } else if (connectionText.includes('COPSEC-NET')) {
-        setTheme('CSC');
-    } else if (connectionText.includes('DEFCOM-NET')) {
+    if (connectionText.includes('DATA-NET')) {
+        setTheme('IDM');
+    } else if (connectionText.includes('DEFCON-NET')) {
         setTheme('DFC');
+    } else if (connectionText.includes('SYNCORP-NET')) {
+        setTheme('SYN');
     } else if (connectionText.includes('GEC-NET')) {
         setTheme('GEC');
-    } else if (connectionText.includes('FALL-OUT')) {
-        setTheme('FO');
+    } else if (connectionText.includes('FALLHACK-NET')) {
+        setTheme('FAK');
     } else {
         setTheme('DEFAULT'); // Standard grøn
     }
@@ -95,11 +95,11 @@ function themeConnection() {
 
 function setTheme(org) {
     const orgs = {
-        'CAI': { color: "#EAF7F9", bg: "#0d1112" }, // Hvid/Grålig
-        'CSC': { color: "#0CD7CF", bg: "#051112" }, // Blålig
+        'IDM': { color: "#EAF7F9", bg: "#0d1112" }, // Hvid/Grålig
+        'SYN': { color: "#0CD7CF", bg: "#051112" }, // Blålig
         'DFC': { color: "#FF3131", bg: "#120505" }, // Rødlig
-        'GEC': { color: "#c3a747", bg: "#121005" }, // Gul/Amber
-        'FO' : { color: "#FF8C00", bg: "#120a05", noise: "0.45" }, // Lilla
+        'GEC': { color: "#c3a747", bg: "#121005" }, // Gul
+        'FAK' : { color: "#FF8C00", bg: "#120a05", noise: "0.45" }, // Amber
         'DEFAULT': { color: "#2DFD8B", bg: "#0b1a13" } // Grøn
     };
 
@@ -116,7 +116,7 @@ function setTheme(org) {
     document.documentElement.style.setProperty('--fallout-bg', theme.bg);
 
     // Tilføj eller fjern glitch-effekten
-    if (org === 'UG') {
+    if (org === 'FAK') {
         wrapper.addClass('hacker-glitch');
     } else {
         wrapper.removeClass('hacker-glitch');
@@ -134,7 +134,7 @@ function setTermMode(mode) {
         localStorage.setItem('term', mode);
         sendCommand('term', mode);
     } else {
-        loadText('UNKNOWN TERMINAL TYPE');
+        loadText('ERROR: UNKNOWN TERMINAL');
     }
 }
 
