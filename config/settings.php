@@ -2,10 +2,12 @@
 
 return [
     'setup' => true,
-    'key' => base64_encode('62A2AY-3297ZX-1Z6XX3-ZX4Y60'),
+    'key' => '101097',
     'name' => 'FALLHACK',
     'version' => "1.0",
     'path' => BASE_PATH,
+    'repo_name' => 'fallhack',
+    'repo_user' => 'edbit-dk',
     'date' => 'D M j Y H:i:s',
     'timestamp' => 'Y-m-d H:i:s',
     'unix_timestamp' => 'D M j H:i:s Y',
