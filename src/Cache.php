@@ -54,7 +54,7 @@ class Cache
      * @param  \Closure|null  $callback
      * @return mixed
      */
-    public static function remember($key, $ttl = null, \Closure $callback = null)
+    public static function remember($key, $ttl = null, ?callable $callback = null)
     {
         // If the second argument is a closure, it's the callback
         if ($callback === null && $ttl instanceof \Closure) {
