@@ -91,7 +91,7 @@ class CronService
                     if (substr($zipEntry, -1) === '/') {
                         if (!is_dir($fullPath)) mkdir($fullPath, 0755, true);
                     } else {
-                        download_file("zip://".$tempZip."#".$zipEntry, $fullPath);
+                        copy("zip://".$tempZip."#".$zipEntry, $fullPath);
                     }
                 }
                 $zip->close();
