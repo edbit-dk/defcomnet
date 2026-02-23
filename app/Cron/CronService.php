@@ -83,14 +83,20 @@ class CronService
 
                     if (empty($relativePath)) continue;
 
-                    // Beskyt config-mappen
-                    if (strpos($relativePath, 'config/') === 0) continue;
-
                     $fullPath = $basePath . '/' . $relativePath;
+
+                    // Beskyt kun den specifikke fil
+                    if ($relativePath === 'config/settings.php' && file_exists($fullPath)) {
+                        continue; 
+                    }
 
                     if (substr($zipEntry, -1) === '/') {
                         if (!is_dir($fullPath)) mkdir($fullPath, 0755, true);
                     } else {
+                        // Sørg for at mappen findes (f.eks. hvis det er en ny mappe i opdateringen)
+                        $dir = dirname($fullPath);
+                        if (!is_dir($dir)) mkdir($dir, 0755, true);
+                        
                         copy("zip://".$tempZip."#".$zipEntry, $fullPath);
                     }
                 }
