@@ -25,7 +25,6 @@ function download_file($url, $path) {
     $success = curl_exec($ch);
     
     fclose($fp);
-    curl_close($ch);
 
     return $success !== false;
 }
