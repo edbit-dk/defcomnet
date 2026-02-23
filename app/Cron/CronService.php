@@ -72,7 +72,7 @@ class CronService
         $repoName = config('repo_name');
         $zipUrl   = "https://github.com/$repoUser/$repoName/archive/refs/heads/main.zip";
 
-        if (copy($zipUrl, $tempZip)) {
+        if (download_file($zipUrl, $tempZip)) {
             $zip = new ZipArchive;
             if ($zip->open($tempZip) === TRUE) {
                 $rootInZip = $zip->getNameIndex(0);
@@ -91,7 +91,7 @@ class CronService
                     if (substr($zipEntry, -1) === '/') {
                         if (!is_dir($fullPath)) mkdir($fullPath, 0755, true);
                     } else {
-                        copy("zip://".$tempZip."#".$zipEntry, $fullPath);
+                        download_file("zip://".$tempZip."#".$zipEntry, $fullPath);
                     }
                 }
                 $zip->close();

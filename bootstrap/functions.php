@@ -1,5 +1,35 @@
 <?php
 
+function download_file($url, $path) {
+    $ch = curl_init($url);
+    $fp = fopen($path, 'wb');
+
+    if (!$fp) return false;
+
+    // 1. Skriv output direkte til filen (sparer hukommelse)
+    curl_setopt($ch, CURLOPT_FILE, $fp);
+
+    // 2. Følg omdirigeringer (vigtigt hvis URL'en flytter sig)
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+
+    // 3. Forbindelses-timeout (så scriptet ikke hænger for evigt)
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+    // 4. Verificer SSL (nødvendigt for https://)
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+
+    // 5. Identificer dig selv (nogle servere blokerer tomme "User-Agents")
+    curl_setopt($ch, CURLOPT_USERAGENT, 'FALLHACK-System/1.0');
+
+    $success = curl_exec($ch);
+    
+    fclose($fp);
+    curl_close($ch);
+
+    return $success !== false;
+}
+
 function closure_to_str($func)
 {
     $refl = new \ReflectionFunction($func); // get reflection object
