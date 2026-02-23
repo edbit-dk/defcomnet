@@ -337,8 +337,7 @@ class HostService
 
         if (Session::has(self::$blocked)) {
             echo <<< EOT
-            *** Unauthorized activity detected ***
-            *** Connection terminated by remote host ***
+            ERROR: TERMINAL BLOCKED. PLEASE CONTACT AN ADMINISTRATOR.
             EOT;
             exit;
         }
