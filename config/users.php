@@ -24,7 +24,6 @@ return [
         'email' => 'USER@FALLHACK', 
         'password' => word_pass(),
         'code' => access_code(),
-        'fullname' => 'FALLHACK USER',
         'role' => 'USER',
         'is_admin' => 0,
         'credits' => 10
